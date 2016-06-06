@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="sentry-security-stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Sentry Security</title>
+  </head>
+  <body>
+    <div id="slider">
+      
+      <img id="pic0" src="properties/pictures/slider0.jpg">
+      <img id="pic1" src="properties/pictures/slider1.jpg">
+      <img id="pic2" src="properties/pictures/slider2.jpg">
+      <div id="left-btn"><i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i></div>
+      <div id="right-btn"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></div>
+    </div>
+    
+    <div id="navigation-bar">
+      <div id="logo">
+        <img src="properties/pictures/sentry-security.png">
+    </div>
+        
+    <div id="bar">
+      <a href="index.html" id="active">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="services.html">SERVICES</a>
+      <a href="team.html">TEAM</a>
+      <a href="clients.html">CLIENTS</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </div>
+  
+  <div id="content">
+      <div id="slide-content-0" class="hidden-slide">
+        <h5>Building Across The Globe</h5>
+        <h1>WORLD WIDE CLIENTS</h1>
+        <div class="slider-button">
+          <h4>See Our Latest Work</h4>
+        </div>
+      </div>
+      
+      <div id="slide-content-1" class="hidden-slide">
+        <h5>20 Years Of Experience</h5>
+        <h1>INDUSTRY EXPERTS</h1>
+        <div class="slider-button">
+          <h4>See Our Latest Work</h4>
+        </div>
+      </div>
+      
+      <div id="slide-content-2" class="hidden-slide">
+        <h5>Welcome To Your New Website</h5>
+        <h1>WE CREATE CARRERS</h1>
+        <div class="slider-button">
+          <h4>See Our Latest Work</h4>
+      </div>
+    </div>
+  </div>
+  
+  <div id="tiwwd-banner">
+    <div class="tiwwd-banner-segment">
+      <i class="material-icons">warning</i>
+      <h5>FIRE ALARM</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="tiwwd-banner-segment">
+      <i class="material-icons">warning</i>
+      <h5 class="raise-me">SECURITY ALARM</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="tiwwd-banner-segment">
+      <i class="material-icons">warning</i>
+      <h5 class="raise-me">ACCESS CONTROL</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="tiwwd-banner-segment">
+      <i class="material-icons">warning</i>
+      <h5>CCTV</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="tiwwd-banner-segment">
+      <i class="material-icons">warning</i>
+      <h5>CSM</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="tiwwd-banner-segment">
+      <i class="material-icons">warning</i>
+      <h5>AUTOMATION</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    
+    <div id="moc-container">
+      <a href="https://www.youtube.com/watch?v=PSYOxml213o" target="blank_"><i id="play-button" class="fa fa-play-circle fa-4x" aria-hidden="true"></i></a>
+      <img id="video-pic" src="https://i.ytimg.com/vi/DJuh2KvI25g/hqdefault.jpg">
+      <h1>MEET OUR COMPANY</h1>
+      <p><strong>Sentry Security, Inc.,</strong> is a fully licensed and insured, locally owned and operated 
+        fire protection and security contractor serving all of South Florida. The emphasis of 
+        our company is to provide one-stop shopping, at a fair price and in a timely manner to 
+        meet all of your fire protection, fire detection, and security system needs! The Sentry 
+        Security staff has nearly 150 years combined experience in fire protection, fire detection, 
+        CCTV, and security / intrusion alarm systems.</p>
+      </div>
+  </div>
+    
+  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+  $(window).load(function() {
+    var windowPercent = $(window).height()/100;
+    $("#slider img").css("height", $(window).height());
+    $("#pic0").animate({"opacity": 1});
+    $("#left-btn").css("top", $(window).height()/2);
+    $("#right-btn").css("top", $(window).height()/2);
+    $("#buttons li").css("top", windowPercent*90);
+    setTimeout(function(){
+      $("#slide-content-0").animate({"opacity": 1});
+    }, 1000);
+  });
+  
+  $(document).ready(function(){
+    
+    $(".tiwwd-banner-segment i").mouseover(function() {
+      $(this).animate({"border-radius": 0, "color": "white", "background-color": "red"});
+    });
+    
+    $(".tiwwd-banner-segment i").mouseout(function(){
+      $(this).animate({"border-radius": "100%", "color": "red", "background-color": "rgba(0, 0, 0, 0)"});
+    });
+    
+    var picNumber = 0;
+    
+    $("#left-btn").on("click", function(){
+        $("#pic"+picNumber).animate({"opacity": 0});
+        $("#slide-content-"+picNumber).animate({"opacity": 0});
+        
+        picNumber--;
+        if(picNumber < 0) picNumber = 2;
+        
+        $("#pic"+picNumber).animate({"opacity": 1});
+        $("#slide-content-"+picNumber).animate({"opacity": 1});
+    });
+    
+    $("#right-btn").on("click", function(){
+        $("#pic"+picNumber).animate({"opacity": 0});
+        $("#slide-content-"+picNumber).animate({"opacity": 0});
+        
+        picNumber++;
+        if(picNumber > 2) picNumber = 0;
+        
+        $("#pic"+picNumber).animate({"opacity": 1});
+        $("#slide-content-"+picNumber).animate({"opacity": 1});
+    });
+    
+    // $("#right-btn i").click(function(){
+    //     $("#pic"+picNumber).animate({"opacity": 0});
+    //     $("#slide-content-"+picNumber).animate({"opacity": 0});
+        
+    //     picNumber++;
+    //     if(picNumber == 3) picNumber = 0;
+        
+    //     $("#pic"+picNumber).animate({"opacity": 1});
+    //     $("#slide-content-"+picNumber).animate({"opacity": 1});
+    // });
+    
+    var timeout = setInterval(function(){
+      $("#slide-content-"+picNumber).animate({"opacity": 0});
+      $("#pic"+picNumber).animate({"opacity": 0});
+      picNumber ++;
+      
+      if (picNumber == 3) {
+        picNumber = 0;
+      }
+      
+      $("#pic"+picNumber).animate({"opacity": 1});
+      
+        setTimeout(function(){
+          $("#slide-content-"+picNumber).animate({"opacity": 1});
+        }, 500);
+        console.log(picNumber);
+      }, 5000);
+  });
+  
+  
+</script>
+</html>
